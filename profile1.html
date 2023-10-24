@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Payment Application - Profile</title>
+    <link rel="import" href="./child.html">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        background-color: purple;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .profile-info {
+        text-align: center;
+      }
+
+      .profile-picture {
+        max-width: 200px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 50%;
+      }
+
+      .user-details {
+        margin-top: 20px;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>MY Profile</header>
+      <h1>My Profile</h1>
+      <div class="profile-info">
+        <img
+          src="profile.jpeg"
+          alt="Profile Picture"
+          class="profile-picture"
+        />
+
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+      </div>
+      <div class="user-details">
+        <h2>User Details</h2>
+        <p><strong>Username:</strong> johndoe123</p>
+        <p><strong>Phone Number:</strong> (555) 555-5555</p>
+        <p><strong>Address:</strong> 123 Main St, City, Country</p>
+      </div>
+    </div>
+  </body>
+</html>
+</div>
+</div>
+<script>
+const pages = document.querySelectorAll(".page");
+const links = document.querySelectorAll(".sidebar a");
+
+links.forEach((link) => {
+link.addEventListener("click", (e) => {
+  e.preventDefault();
+  const targetId = link.id + "-content";
+
+  pages.forEach((page) => {
+    page.style.display = "none";
+  });
+
+  const targetPage = document.getElementById(targetId);
+  targetPage.style.display = "block";
+
+  // Update the URL in the browser without page reload
+  history.pushState(null, "", `/${link.id}`);
+});
+});
+
+// Handle back/forward navigation
+window.addEventListener("popstate", () => {
+const currentPageId = location.pathname.replace("/", "");
+pages.forEach((page) => {
+  page.style.display = "none";
+});
+const currentPage = document.getElementById(currentPageId + "-content");
+currentPage.style.display = "block";
+});
+</script>
+</body>
+</html>
